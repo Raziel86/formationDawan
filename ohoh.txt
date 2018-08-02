@@ -1,2 +1,6 @@
 I am groot
-je s'appelle groot
+<<<<<<< HEAD
+
+=======
+tiny tout écraser !
+>>>>>>> mini
