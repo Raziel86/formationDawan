@@ -1,13 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>formationDawan</groupId>
-  <artifactId>formationDawan</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-<packaging>jar</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>formationDawan</groupId>
+	<artifactId>formationDawan</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>formationDawan</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<!-- Ce texte sera reporté dans le projet report > site > about -->
 	<description>
 	Tests d'un projet MAVEN + GIT
@@ -19,7 +21,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>[4.4,)</junit.version>
 	</properties>
-
+	<scm>
+		<connection>https://github.com/Raziel86/formationDawan</connection>
+		<developerConnection>scm:git:git://github.com/Raziel86/formationDawan</developerConnection>
+		<url>https://github.com/Raziel86/formationDawan</url>
+	</scm>
 	<profiles>
 		<profile>
 			<id>dev</id>
@@ -56,7 +62,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.10.0</version>
 				<configuration>
 					<connectionType>connection</connectionType>
 				</configuration>
@@ -64,12 +69,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.10.0</version>
 				<configuration>
 					<connectionType>developerConnection</connectionType>
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>1.10.0</version>
+
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 
