@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>formationDawan</groupId>
+  <artifactId>formationDawan</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
+
+	<name>formationDawan</name>
+	<url>http://maven.apache.org</url>
+	
+	<!-- Ce texte sera reporté dans le projet report > site > about -->
+	<description>
+	Tests d'un projet MAVEN + GIT
+	</description>
+
+	<!-- Variables globales -->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>[4.4,)</junit.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
+				<db.connectionURL>jdbc:mysql:localhost:3306/bdd1</db.connectionURL>
+				<db.username>root</db.username>
+				<db.password>secret</db.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
+				<db.connectionURL>jdbc:mysql:72.10.1.1:3306/bddProd</db.connectionURL>
+				<db.username>root</db.username>
+				<db.password>secret</db.password>
+			</properties>
+		</profile>
+	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.10.0</version>
+				<configuration>
+					<connectionType>connection</connectionType>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.10.0</version>
+				<configuration>
+					<connectionType>developerConnection</connectionType>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.0.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.10.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>2.7.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<!-- Variables d'archives -->
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimesFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.47</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+	<organization>
+		<name>DAWAN</name>
+		<url>https://dawan.fr</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Mohamed</name>
+			<email>mderkaoui@dawan.fr</email>
+			<organization>DAWAN</organization>
+		</developer>
+		<developer>
+			<name>Maxime</name>
+			<email>maxime@test.fr</email>
+			<organization>Societe B</organization>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Cindy</name>
+			<organization>societeA</organization>
+		</contributor>
+
+	</contributors>
+
+</project>
